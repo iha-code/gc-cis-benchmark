@@ -10,6 +10,7 @@ from jinja2 import Environment, FileSystemLoader
 from tabulate import tabulate
 from bs4 import BeautifulSoup
 import shutil
+# from benchmarks import iam, logmon, net, vm, storage, mysql,postgres, msssql, bq
 import configparser
 
 
@@ -227,7 +228,8 @@ def crtpiehtm():
         d["benchmark"] = [str(s.strip()) for s in d["benchmark"].split(",")]
         nargs = len(d["benchmark"])
         for bench in d["benchmark"]:
-            benchList.append(str1+f'"{bench}' + '.js'+'"'+str2)
+            if bench == 'iam' or bench == 'logmon' or bench == 'storage':
+                benchList.append(str1+f'"{bench}' + '.js'+'"'+str2)
         for bench in benchList:
             benchstr += bench
         try:
@@ -252,7 +254,7 @@ def crtpiehtm():
         context = {
             "nargs": nargs,
             "benchmarks": d["benchmark"],
-              }
+        }
         with open(results_filename, mode="w", encoding="utf-8") as results:
             results.write(results_template.render(context))
         try:

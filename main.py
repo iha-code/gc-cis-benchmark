@@ -1,4 +1,8 @@
+from modules.arguments import parser
+from benchmarks.iam import *
 from modules.gcservices import *
+import os
+#from benchmarks import iam, logmon, net, vm, storage, mysql,postgres, msssql, bq
 
 def main():
     try:
@@ -7,7 +11,7 @@ def main():
         print('An error occurred while during parsing argument values')
     if "benchmark" in d.keys():
         d["benchmark"] = [str(s.strip()) for s in d["benchmark"].split(",")]
-    choices = ['iam', 'logmon', 'net', 'vm', 'storage', 'mysql', 'postgres', 'mssql', 'bq']
+    choices = ['iam', 'logmon', 'storage', 'mysql', 'postgres', 'mssql', 'bq']
     if "f" in d.keys():
         d["f"] = [str(s.strip()) for s in d["f"].split(",")]
     for p in d["f"]:
@@ -26,7 +30,7 @@ def main():
             elif p == 'storage':
                 storage(format)
         else:
-            print("not exist")
+            print(f'Benchmark {p} is not implemented or does not exist')
 
 def rpt():
     try:
