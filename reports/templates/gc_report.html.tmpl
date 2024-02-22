@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Cloud CIS report</title>
+<style type="text/css">
+h  {font-family:Arial;font-size: 17px}
+</style>
+<h>This report  is based on CIS Google Cloud Platform Foundation Benchmark<br>
+It's created for project_id:  <b>{{ project_id }}</b> in region:  <b>{{ region }}</b><br>
+Creation time: <b>{{ creation_time }}</b></h>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<body>
+ {% include "pie.html" %}
+ <br>
+<br>
+ {% include 'GC_SERVICES.html' %}
+</body>
+</head>
+</html>

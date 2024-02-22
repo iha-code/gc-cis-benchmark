@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {background-color: white;}
+p    {color: black;  font-weight: bold; font-size: 17px; font-family:Arial}
+table, th, td {
+  border-collapse: collapse;
+  font-size: 15px;
+  th, td {
+  background-color: white;
+  border: 1px solid black;
+  font-family:Arial
+}
+</style>
+<body>
+<p>{{ control }}</p>
+<table style="width:100%" >
+    <thead>
+      <tr>
+         <th style="background-color:  #d5d8dc;width:35%">Control </th>
+         <th  style="background-color:  #d5d8dc;width:4%">Status  </th>
+         <th style="background-color:  #d5d8dc;">Description </th>
+      </tr>
+   </thead>
+   {% for rl in resultList %}
+   <tbody>
+      <tr>
+         <td>{{ rl[0][1] }}</td>
+         <td >{{ rl[1][1] }}</td>
+         <td>{{ rl[2][1] }}</td>
+      </tr>
+   </tbody>
+  {% endfor %}
+</table>
+</body>
+</html>

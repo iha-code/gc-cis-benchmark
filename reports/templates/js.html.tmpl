@@ -1,0 +1,30 @@
+google.charts.load('current', {
+  packages: ['corechart']
+}).then(function () {
+  var data = google.visualization.arrayToDataTable(
+     {{ nestedList }}
+  );
+
+  var colors = [];
+  var colorMap = {
+   'Denied': '#24CBE5',
+   'Passed': '#5cb85c',
+   'Unknown': '#DDDF00',
+   'Failed': '#ba3525',
+   'Disabled': ' #abb2b9'
+  }
+  for (var i = 0; i < data.getNumberOfRows(); i++) {
+    colors.push(colorMap[data.getValue(i, 0)]);
+  }
+
+  var options = {
+    title: '{{ control }}',
+    is3D: true,
+    colors: colors,
+    legend: {position: 'right', textStyle: {color: 'black', fontSize: 15}},
+    chartArea: {width:'80%',height:'85%'},
+    titleTextStyle: { color: 'black', fontName: 'arial', fontSize: 15, bold: true},
+  };
+  var chart = new google.visualization.PieChart(document.getElementById('{{ arg }}'));
+  chart.draw(data, options);
+});
