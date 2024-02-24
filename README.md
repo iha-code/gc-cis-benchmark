@@ -49,7 +49,7 @@ python -m pip install --upgrade -r requirements.txt
 
 
 ### Usage
-For running tool minimal recommended permission for authenticated service account or user is **_roles/owner_**
+For running tool minimal recommended permission for authenticated service account or user is _roles/editor_
 
 ```bash
 usage: python3 main.py [optional arguments]
