@@ -1,6 +1,7 @@
-# gc-cis-benchmark
+# Google Cloud CIS benchmark scanner
 
 This is tool to benchmark GC environment against guide CIS Google Cloud Platform Foundation Benchmark v1.3.0 - 03-31-2022.
+Tools is not an officially Google Cloud product, also is not approved by CIS.
 Currently available modules are for Identity and Access Management, Logging and Monitoring and Storage, other are are currently in progress. 
 It's providing automatically checking every control, and as result give report in html or txt format. Every control can has one of the following status:
 _Passed_, _Failed_, _Unknown_, _Disabled_ and _Denied_
