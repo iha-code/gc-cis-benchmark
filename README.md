@@ -84,7 +84,7 @@ optional arguments:
 Below there is example of scanning process which create report with default name GC_CIS_REPORT.html, with 3D pie charts and tables. 
 ```bash
 python main.py -c gc.conf --oauth2 sacred --benchmark iam,logmon,storage -f html
-Minimal recommended role for authenticated service account is roles/owner
+Minimal recommended role for authenticated service account is roles/editor
 ... scanning Identity and Access Management services
 ... scanning Logging and Monitoring services
 ... scanning Storage services

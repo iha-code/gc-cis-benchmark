@@ -42,7 +42,7 @@ def get_credentials(oauth2):
             creds = Credentials.from_service_account_file(sa_file)
             role_status = rolestatus(project_id, creds)
             if role_status == 'None':
-                print('Minimal recommended role for authenticated service account is roles/owner')
+                print('Minimal recommended role for authenticated service account is roles/editor')
         except GoogleAPICallError as e:
             print(f"Error sacred: {str(e)}")
         return creds
@@ -71,7 +71,7 @@ def rolestatus(project_id, credentials):
                 role_status = 'None'
         if role_status != 'None':
             for binding in response['bindings']:
-                if binding['role'] == 'roles/owner':
+                if binding['role'] == 'roles/editor':
                     for sad in binding['members']:
                         if sad.startswith(f'serviceAccount:{sa}'):
                             sa_list.append(sad)
