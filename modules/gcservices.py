@@ -91,8 +91,9 @@ def storage(format):
 def rpthtm():
     lttuple = time.localtime()
     creation_time = time.strftime("%Y-%m-%d, %H:%M:%S", lttuple)
+    rpt_time = time.strftime("%Y-%m-%d_%H_%M_%S", lttuple)
     environment = Environment(loader=FileSystemLoader("reports/templates"))
-    results_filename = "reports/templates/GC_CIS_REPORT.html"
+    results_filename = f"reports/templates/GC_CIS_REPORT_{rpt_time}.html"
     results_template = environment.get_template("gc_report.html.tmpl")
     context = {
         "project_id": project_id,
@@ -102,8 +103,8 @@ def rpthtm():
     with open(results_filename, mode="w", encoding="utf-8") as results:
         results.write(results_template.render(context))
     try:
-        os.replace('reports/templates/GC_CIS_REPORT.html', 'reports/GC_CIS_REPORT.html')
-        print("Created report reports/GC_CIS_REPORT.html")
+        os.replace(f'reports/templates/GC_CIS_REPORT_{rpt_time}.html', f'reports/GC_CIS_REPORT_{rpt_time}.html')
+        print(f"Created report reports/GC_CIS_REPORT_{rpt_time}.html")
     except PermissionError:
         print("Operation not permitted.")
     except OSError as err:
@@ -131,8 +132,9 @@ def html(control, lists):
 def rpttxt():
     lttuple = time.localtime()
     creation_time = time.strftime("%Y-%m-%d, %H:%M:%S", lttuple)
+    rpt_time = time.strftime("%Y-%m-%d_%H_%M_%S", lttuple)
     environment = Environment(loader=FileSystemLoader("reports/templates"))
-    results_filename = "reports/GC_CIS_REPORT.txt"
+    results_filename = f"reports/GC_CIS_REPORT_{rpt_time}.txt"
     results_template = environment.get_template("gc_report.txt.tmpl")
     context = {
         "project_id": project_id,
@@ -141,7 +143,15 @@ def rpttxt():
     }
     with open(results_filename, mode="w", encoding="utf-8") as results:
         results.write(results_template.render(context))
-        print(f"Created report {results_filename}")
+    try:
+        os.replace(f'reports/templates/GC_CIS_REPORT_{rpt_time}.txt', f'reports/GC_CIS_REPORT_{rpt_time}.txt')
+        print(f"Created report reports/GC_CIS_REPORT_{rpt_time}.txt")
+    except PermissionError:
+        print("Operation not permitted.")
+    except OSError as err:
+        print("Operation system error:", err)
+    except Exception as err:
+        print(f"Unexpected {err=}, {type(err)=}")
 
 def txt(control, cont):
     headers = ["Control", "Status", "Description"]
