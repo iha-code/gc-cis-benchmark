@@ -82,14 +82,14 @@ optional arguments:
 ```
 
 ### Example
-Below there is example of scanning process which create report with default name GC_CIS_REPORT.html, with 3D pie charts and tables. 
+Below there is example of scanning process which create report in the format name _GC_CIS_REPORT_yyyy-mm-dd_hh24_mi_ss.html_, with 3D pie charts and tables. 
 ```bash
 python main.py -c gc.conf --oauth2 sacred --benchmark iam,logmon,storage -f html
 Minimal recommended role for authenticated service account is roles/editor
 ... scanning Identity and Access Management services
 ... scanning Logging and Monitoring services
 ... scanning Storage services
-Created report reports/GC_CIS_REPORT.html
+Created report reports/GC_CIS_REPORT_2024-02-26_15_04_46.html
 ```
 GC_CIS_REPORT.html
 
