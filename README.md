@@ -91,7 +91,7 @@ Minimal recommended role for authenticated service account is roles/editor
 ... scanning Storage services
 Created report reports/GC_CIS_REPORT_2024-02-21_15_38_52.html
 ```
-GC_CIS_REPORT_2024-02-21_15_38_52.html
+_GC_CIS_REPORT_2024-02-21_15_38_52.html_
 
 ![HTML REPORT](report.png)
 
