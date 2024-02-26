@@ -89,9 +89,9 @@ Minimal recommended role for authenticated service account is roles/editor
 ... scanning Identity and Access Management services
 ... scanning Logging and Monitoring services
 ... scanning Storage services
-Created report reports/GC_CIS_REPORT_2024-02-26_15_04_46.html
+Created report reports/GC_CIS_REPORT_2024-02-21_15_38_52.html
 ```
-GC_CIS_REPORT.html
+GC_CIS_REPORT_2024-02-21_15_38_52.html
 
 ![HTML REPORT](report.png)
 
